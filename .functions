@@ -1,5 +1,44 @@
 #!/usr/bin/env bash
 
+# tping 10.188.55.83
+# Wed Feb 26 08:42:37 EST 2014: PING 10.188.55.83 (10.188.55.83) 56(84) bytes of data.
+# Wed Feb 26 08:42:37 EST 2014: 64 bytes from 10.188.55.83: icmp_req=1 ttl=123 time=0.867 ms
+# Wed Feb 26 08:42:38 EST 2014: 64 bytes from 10.188.55.83: icmp_req=2 ttl=123 time=0.630 ms
+
+# tping  (timed_ping)
+  function tping { ping $1 | while read pong; do echo "$(date): $pong"; done; }
+  export -f tping
+
+# tcpping
+  function tcpping { sudo /usr/sbin/hping3 $1 -c 3 -S -V -A -p 22 | while read hong; do echo "$(date): $hong"; done; }
+  export -f tcpping
+
+# list CMD history
+function list {
+  history
+}
+
+# list CMD history with grep match
+function glist {
+  history | grep $1
+}
+
+# list PS list with grep match
+function gps {
+  ps -ef | grep $1
+}
+
+# terminal tab name
+function tabname {
+  printf "\e]1;$1\a"
+}
+
+# terminal windows name
+function winname {
+  printf "\e]2;$1\a"
+}
+
+
 # Simple calculator
 function calc() {
 	local result="";
