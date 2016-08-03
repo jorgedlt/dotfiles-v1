@@ -50,6 +50,7 @@ brew install bash-completion2
 #   chsh -s /usr/local/bin/bash;
 # fi;
 
+# todo - add a clean python and pip steps 
 
 # Install more recent versions of some macOS tools.
 brew install vim --override-system-vi
@@ -58,14 +59,12 @@ brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
 brew install homebrew/php/php56 --with-gmp
 
+brew install htop
 
- brew install htop
-
- 
- brew install arp-scan
-    
+brew install arp-scan
     # sudo arp-scan --interface=en0 --localnet
  
+# network tools
  brew install nmap
  brew install netcat
  
@@ -73,7 +72,8 @@ brew install homebrew/php/php56 --with-gmp
  brew install hping
  
  brew install mtr --no-gtk
- 
+
+# other needed goodies 
  brew install git
  brew install ffmpeg
  brew install mediainfo
@@ -91,7 +91,7 @@ brew install homebrew/php/php56 --with-gmp
  
  #  brew install gnuplot
 
- # Hard core stuff
+ # Hard serial stuff
  #  brew install lrzsz      # zmodem copy
  #  brew install minicom    # mini serial terminal
  #  brew install rar        # rar xxx
