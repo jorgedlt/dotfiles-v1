@@ -1,4 +1,4 @@
-# .bashrc -- for AWS and other Cloud Nodes
+# .bashrc -- for MAC, AWS and other Cloud Nodes
 #
 #
 
@@ -84,27 +84,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# Window Dimensions
-	alias windim="echo $(tput cols)x$(tput lines)"
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-
-	alias ls='ls --color=auto'
-
-	# I'm not sure, but I think the LSCOLORS and .dircolors conflict with each other
-	LS_COLORS='di=35:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=34'
-	export LS_COLORS
-
- 	alias dir='dir --color=auto'
- 	alias vdir='vdir --color=auto'
-
- # some more ls aliases
- 	alias ll='ls -AhHl --color=auto'
- 	alias la='ls -A'
- 	alias l='ls -CF'
-
 # tell grep to highlight matches
  	export GREP_COLOR='1;31'        # GREP_COLOR is deprecated
  	export GREP_COLORS='1;31'
@@ -126,65 +105,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#
- alias ll="ls -l"
- alias lc="ls -C"
- alias lb="ls -C $HOME/mybin"
- alias l.="ls -lart"
- alias cls="clear"
-
-# Create a new set of commands
- alias path='echo -e ${PATH//:/\\n}'
- alias now=' date +" %T"'
- alias nowtime=now
- alias nowdate='date +" %Y-%m-%d"'
- alias list=history
-
-# Set vim as default
- alias vi=vim
-
-# Stop after sending count ECHO_REQUEST packets #
- alias ping='ping -c 3'
-
-# confirmation #
- alias mv='mv -i'
- alias cp='cp -i'
- alias ln='ln -i'
-
-# tping 10.188.55.83
-# Wed Feb 26 08:42:37 EST 2014: PING 10.188.55.83 (10.188.55.83) 56(84) bytes of data.
-# Wed Feb 26 08:42:37 EST 2014: 64 bytes from 10.188.55.83: icmp_req=1 ttl=123 time=0.867 ms
-# Wed Feb 26 08:42:38 EST 2014: 64 bytes from 10.188.55.83: icmp_req=2 ttl=123 time=0.630 ms
-
-# tping  (timed_ping)
-  function tping { ping $1 | while read pong; do echo "$(date): $pong"; done; }
-  export -f tping
-
-# tcpping
-  function tcpping { sudo /usr/sbin/hping3 $1 -c 3 -S -V -A -p 22 | while read hong; do echo "$(date): $hong"; done; }
-  export -f tcpping
-
-# list CMD history
-function list {
-  history
-}
-
-# list CMD history with grep match
-function glist {
-  history | grep $1
-}
-
-# list PS list with grep match
-function gps {
-  ps -ef | grep $1
-}
-
-# terminal tab name
-function tabname {
-  printf "\e]1;$1\a"
-}
-
-# terminal windows name
-function winname {
-  printf "\e]2;$1\a"
-}
