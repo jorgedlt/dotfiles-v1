@@ -30,6 +30,8 @@ ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 # Install some moreutils
 brew install moreutils 
     # Learn more about this -- https://rentes.github.io/unix/utilities/2015/07/27/moreutils-package/
+    
+brew install gnu-sed               # maps to gsed - sed with super power like foofoobar -> 's/o//2g' = fofbar    
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
